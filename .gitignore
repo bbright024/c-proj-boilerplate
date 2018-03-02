@@ -1,0 +1,41 @@
+# Unique to proxy #
+###################
+oldcode.c
+.proxy/
+.noproxy/
+build/
+bin/
+old/
+*_html/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.a
+
+# Logs #
+########
+*.log
+
+# Test Data #
+#############
+*.info
+*.gcno
+*.gcov
+*.gcda
+gmon.out
+
+# Packages #
+############
+*.tar
+*.zip
+
+# Emacs #
+#########
+*~
+\#*\#
