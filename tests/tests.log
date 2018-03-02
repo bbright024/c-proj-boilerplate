@@ -1,0 +1,9 @@
+DEBUG tests/libex29_tests.c:67: ----- RUNNING: ./tests/libex29_tests (argc is 1)
+DEBUG tests/libex29_tests.c:59: 
+----- test_dlopen
+DEBUG tests/libex29_tests.c:60: 
+----- test_functions
+DEBUG tests/libex29_tests.c:61: 
+----- test_failures
+[ERROR] (tests/libex29_tests.c:18: errno: None) Function fail_on_purpose return 1 for data: Hello
+[ERROR] (tests/libex29_tests.c:44: errno: None) fail_on_purpose should fail
