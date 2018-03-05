@@ -102,14 +102,19 @@ tests: CFLAGS += $(TARGET)
 tests: $(TESTS) 
 	sh ./tests/runtests.sh || true
 
+TAGS:
+	find . -type f -name "*.[ch]" | xargs etags -
+
 #the Cleaner
 # -- last line removes *.dSYM directories that Apple's XCode leaves
 #    for debugging. doubt I'll ever code on a Mac but who knows.
 .PHONY: clean
 clean:
-	rm -rf build $(OBJECTS) $(TESTS)
-	rm -f tests/tests.log
-	find . -name "*.gc*" -exec rm {} \;
+	rm -Rf ./bin/*
+	rm -Rf ./build/*
+	rm -rf ./*/*_html/
+	find . -type f \( -name "TAGS" -o -name "*.o" -o -name "*.gc*" -o -name ".stats" \
+-o -name "*.log" -o -name "*.info" -o -name "gmon.out" -o -name "*_tests" \) -exec rm {} \;
 	rm -rf 'find . -name "*.dSYM" -print'
 
 #the Install
