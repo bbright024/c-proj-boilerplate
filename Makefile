@@ -77,8 +77,9 @@ $(SO_TARGET): $(LIBTARGET) $(LIBOBJS)
 	$(CC) $(CFLAGS) -c $<
 .PHONY: build
 build:
-	@mkdir -p build
-	@mkdir -p bin
+	@mkdir -p ./build
+	@mkdir -p ./bin/tests
+	$(MAKE) TAGS
 
 .PHONY: test_coverage
 test_coverage: clean build $(LIBTARGET)
@@ -102,8 +103,9 @@ tests: CFLAGS += $(TARGET)
 tests: $(TESTS) 
 	sh ./tests/runtests.sh || true
 
-TAGS:
-	find . -type f -name "*.[ch]" | xargs etags -
+.PHONY: TAGS tags
+TAGS tags:
+	find ./src/ -type f -name "*.[ch]" | xargs etags -
 
 #the Cleaner
 # -- last line removes *.dSYM directories that Apple's XCode leaves
