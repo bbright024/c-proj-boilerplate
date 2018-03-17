@@ -90,10 +90,7 @@ test_coverage: $(OBJS) $(TESTS)
 $(TESTS): 
 	$(CC) -Wall -g -DNDEBUG $@.c $(LIBTARGET) -o ./bin/$@ $(OBJS)
 	./bin/$@
-	mv *.gcda ./tests/
-	mv gmon.out ./tests/
-	mv *.gcno ./tests/
-	lcov -b $(mkfile_path) -c -d ./tests/ -o ./$@info.info
+	lcov -b $(mkfile_path) -c -d ./ -o ./$@info.info
 	genhtml ./$@info.info -o ./$@_html/
 	@echo "Open html files in a browser for coverage data"
 
